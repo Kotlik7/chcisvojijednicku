@@ -1,1 +1,53 @@
 <h1>chci jednicku</h1>
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stránka s měnícím se pozadím</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Webová stránka s měnícím se pozadím</h1>
+    <p>Barva pozadí se bude měnit každých 3 sekundy!</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+/* Celkové stylování pro stránku */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #FF5733; /* Počáteční barva pozadí */
+    transition: background-color 1s; /* Plynulý přechod změny barvy */
+    text-align: center;
+}
+
+/* Styl pro nadpis */
+h1 {
+    color: white;
+}
+
+/* Styl pro text */
+p {
+    color: white;
+}
+// Pole s barvami, které se budou používat na pozadí
+const colors = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#9B59B6'];
+
+// Funkce pro změnu barvy pozadí
+function changeBackgroundColor() {
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
+    document.body.style.backgroundColor = randomColor;
+}
+
+// Změna barvy pozadí každé 3 sekundy
+setInterval(changeBackgroundColor, 3000);
+
+// Inicializace počáteční barvy
+changeBackgroundColor();
+
